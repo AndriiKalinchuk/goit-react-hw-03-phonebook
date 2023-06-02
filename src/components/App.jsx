@@ -35,13 +35,11 @@ export default class App extends Component {
 
     if (this.isContactExists(newContact.name)) {
       alert(`${newContact.name} is already in contacts.`);
-    } else {
-      if (newContact.name !== '' && newContact.number !== '') {
-        this.setState({
-          contacts: [...contacts, newContact],
-        });
-      }
+      return;
     }
+    this.setState({
+      contacts: [...contacts, newContact],
+    });
   };
 
   isContactExists = name => {
